@@ -1,1 +1,9 @@
-boolean epic = true;
+
+void setup()
+{
+  
+}
+
+void draw()
+{
+}
