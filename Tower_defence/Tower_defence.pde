@@ -9,6 +9,10 @@ Cell [][] Grid = new Cell[20][13];
 
 PImage path;
 
+Cell hoverCell = null;
+
+ArrayList<Tower> AllTowers = new ArrayList<Tower>();
+
 void setup()
 {
   size(640, 512);
@@ -29,7 +33,13 @@ void draw()
 {
   image(path,0,0, width, playWindowHeight);
   
+  for(int i = 0; i< AllTowers.size(); i++)
+  {
+    AllTowers.get(i).drawTower();
+  }
+  
   mouseCheck();
+  
 }
 
 void mouseCheck()
@@ -39,25 +49,18 @@ void mouseCheck()
   
   if(x<Grid.length && y<Grid[0].length)
   {
-    Grid[x][y].outlineSelected();
+   hoverCell = Grid[x][y];
+   hoverCell.outlineSelected();
   }
 }
 
-class Cell{
-  int x;
-  int y;
-  
-  void outlineSelected()
+void mousePressed()
+{
+  if(hoverCell != null)
   {
-    noFill();
-    stroke(250,0,0);
-    rect(x * cellSize, y* cellSize, cellSize, cellSize);
-  }
-  
-  
-  Cell (int _x, int _y)
-  {
-    x=_x;
-    y=_y;
+    if (hoverCell.buildable())
+    {
+      hoverCell.buildOn(new Tower (hoverCell.x,hoverCell.y));
+    }
   }
 }
