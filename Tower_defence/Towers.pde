@@ -5,7 +5,7 @@ class Tower
   
   void drawTower()
   {
-    fill(255);
+    fill(255,0,0);
     stroke(255);
     ellipseMode(CORNER);
     ellipse(cellX * cellSize , cellY * cellSize, cellSize, cellSize);
