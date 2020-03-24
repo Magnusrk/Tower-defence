@@ -2,11 +2,13 @@ class Cell {
   int x;
   int y;
 
+  boolean isPath = false;
+
   Tower occupant = null;
 
   void buildOn(Tower t)
   {
-    if(buildable())
+    if (buildable())
     {
       occupant = t;
       AllTowers.add(occupant);
@@ -15,7 +17,7 @@ class Cell {
 
   boolean buildable()
   {
-    if (occupant == null)
+    if (occupant == null && !isPath)
     {
       return true;
     } else
@@ -27,7 +29,13 @@ class Cell {
   void outlineSelected()
   {
     noFill();
-    stroke(250, 0, 0);
+    if (buildable())
+    {
+      stroke(0, 255, 0);
+    } else
+    {
+      stroke(255, 0, 0);
+    }
     rect(x * cellSize, y* cellSize, cellSize, cellSize);
   }
 
