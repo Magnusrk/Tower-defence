@@ -31,6 +31,7 @@ void setup()
 
 void draw()
 {
+  background(255,0,0);
   image(path,0,0, width, playWindowHeight);
   
   for(int i = 0; i< AllTowers.size(); i++)
