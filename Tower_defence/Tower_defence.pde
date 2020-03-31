@@ -8,10 +8,11 @@ float menuHeight = HEIGHT - menuPosY;
 Cell [][] Grid = new Cell[20][13];
 
 PImage path;
+EnemySprite[] EnemySprites;
 
 Cell hoverCell = null;
 
-Vector[] Pathway;
+Path Level;
 
 ArrayList<Tower> AllTowers = new ArrayList<Tower>();
 
@@ -26,6 +27,12 @@ void setup()
       Grid[x][y] = new Cell(x, y);
     }
   }
+  
+  EnemySprites = new EnemySprite[]
+  {
+    new EnemySprite("gob"),
+    new EnemySprite("ticky"),
+  };
 
   Vector[]_path = new Vector[]
     {   
@@ -38,7 +45,7 @@ void setup()
     new Vector(7, 9), 
     new Vector(19, 9), 
   };
-  initializePath(_path);
+ // initializePath(_path);
 
   path = loadImage("map.png");
 }
@@ -78,49 +85,6 @@ void mousePressed()
     {
       hoverCell.buildOn(new Tower (hoverCell.x, hoverCell.y));
     }
-  }
-}
-
-void initializePath(Vector[] v)
-{
-  Pathway = v;
-
-  for (int i = 0; i < v.length - 1; i++)
-  {
-    Grid[v[i].x][v[i].y].isPath = true;
-
-    int difference = v[i].x - v[i + 1].x;
-    if (difference != 0)
-    {
-      for (int z = 0; z < abs(difference); z++)
-      {
-        if (difference < 0)
-        {
-          Grid[v[i].x + z][v[i].y].isPath = true;
-        } else
-        {
-          Grid[v[i].x - z][v[i].y].isPath = true;
-        }
-      }
-    } else
-    {
-      difference = v[i].y - v[i + 1].y;
-
-      for (int z = 0; z < abs(difference); z++)
-      {
-        if (difference < 0)
-        {
-          Grid[v[i].x][v[i].y + z].isPath = true;
-        } else
-        {
-          Grid[v[i].x][v[i].y - z].isPath = true;
-        }
-      }
-    }
-  }
-  if (v.length > 0)
-  {
-    Grid[v[v.length - 1].x][v[v.length - 1].y].isPath = true;
   }
 }
 
