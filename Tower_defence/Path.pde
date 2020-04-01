@@ -3,10 +3,61 @@ class Path {
   Vector[] Pathway;
   Lane[] allLanes;
   Vector spawnPos;
+  
+  Vector getSpawn()
+  {
+    return spawnPos;
+  }
+  
+  Direction getDir(int i)
+  {
+    if(i < allLanes.length)
+    {
+      return allLanes[i].dir;
+    } else
+    {
+      return allLanes[allLanes.length - 1].dir;
+    }
+  }
+
+  PathStatus checkPos(Vector v, int lane)
+  {
+    if(lane > allLanes.length) //Path færdig
+    {
+      return PathStatus.finished;
+    }
+    boolean check = allLanes[lane].checkPos(v);
+    if(check)
+    {
+      return PathStatus.next; // Drej
+    } else
+    {
+      return PathStatus.stay; //Fortsæt lige ud
+    }
+  }
 
   class Lane {
     int endPos;
     Direction dir;
+    
+    boolean checkPos(Vector v) {
+      if (dir == Direction.up) {
+        if (endPos > v.y) return true;
+        else return false;
+      } 
+      else if (dir == Direction.down) {
+        if (endPos < v.y) return true;
+        else return false;
+      } 
+      else if (dir == Direction.left) {
+        if (endPos > v.x) return true;
+        else return false;
+      } 
+      else {
+        if (endPos < v.x) return true;
+        else return false;
+      }
+    }
 
     Lane(Direction _dir, Vector cell)
     {
@@ -25,6 +76,7 @@ class Path {
   {
     Pathway = v;
     Direction[] directions = new Direction[v.length - 1];
+    spawnPos = new Vector(round(v[0].x * cellSize), round(v[0].y * cellSize)); 
 
     for (int i = 0; i < v.length - 1; i++)
     {

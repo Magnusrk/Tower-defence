@@ -15,6 +15,7 @@ Cell hoverCell = null;
 Path Level;
 
 ArrayList<Tower> AllTowers = new ArrayList<Tower>();
+ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 
 void setup()
 {
@@ -46,6 +47,8 @@ void setup()
     new Vector(19, 9), 
   };
  // initializePath(_path);
+ 
+ Level = new Path(_path);
 
   path = loadImage("map.png");
 }
@@ -59,6 +62,11 @@ void draw()
 
   {
     AllTowers.get(i).drawTower();
+  }
+  
+  for (int i = 0; i < AllEnemies.size(); i++)
+  {
+    AllEnemies.get(i).move();
   }
 
   mouseCheck();
@@ -76,6 +84,17 @@ void mouseCheck()
   }
 }
 
+void keyPressed()
+{
+  if(key == 'a')
+  {
+    AllEnemies.add(new Enemy(0));
+  }
+  if(key == 's')
+  {
+    AllEnemies.add(new Enemy(1));
+  }
+}
 void mousePressed()
 {
   if (hoverCell != null)
