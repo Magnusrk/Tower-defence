@@ -63,6 +63,7 @@ class Enemy{
     PathStatus status = Level.checkPos(new Vector(posX, posY), onLane);
     if(status == PathStatus.finished)
     {
+      leak(this);
       return;
     } else if(status == PathStatus.next)
     {

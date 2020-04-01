@@ -17,6 +17,9 @@ Path Level;
 ArrayList<Tower> AllTowers = new ArrayList<Tower>();
 ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 
+int baseLives = 10;
+int scrap = 100;
+
 void setup()
 {
   size(640, 512);
@@ -31,8 +34,7 @@ void setup()
   
   EnemySprites = new EnemySprite[]
   {
-    new EnemySprite("gob"),
-    new EnemySprite("ticky"),
+    new EnemySprite("ene1"),
   };
 
   Vector[]_path = new Vector[]
@@ -46,7 +48,6 @@ void setup()
     new Vector(7, 9), 
     new Vector(19, 9), 
   };
- // initializePath(_path);
  
  Level = new Path(_path);
 
@@ -70,6 +71,7 @@ void draw()
   }
 
   mouseCheck();
+  winloseCheck();
 }
 
 void mouseCheck()
@@ -90,10 +92,6 @@ void keyPressed()
   {
     AllEnemies.add(new Enemy(0));
   }
-  if(key == 's')
-  {
-    AllEnemies.add(new Enemy(1));
-  }
 }
 void mousePressed()
 {
@@ -110,4 +108,20 @@ void mousePressed()
 void setUnbuildable(Vector v)
 {
   Grid[v.x][v.y].isPath = true;
+}
+
+void winloseCheck()
+{
+  if(baseLives==0)
+  {
+    println("GAME OVER");
+  }
+}
+
+void leak(Enemy e)
+{
+  AllEnemies.remove(e);
+  
+  baseLives--;
+  println("Base damaged");
 }

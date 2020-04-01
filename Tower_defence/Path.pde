@@ -22,7 +22,7 @@ class Path {
 
   PathStatus checkPos(Vector v, int lane)
   {
-    if(lane > allLanes.length) //Path færdig
+    if(lane > allLanes.length - 1) //Path færdig
     {
       return PathStatus.finished;
     }
