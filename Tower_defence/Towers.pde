@@ -9,6 +9,7 @@ class Tower
     stroke(255);
     ellipseMode(CORNER);
     ellipse(cellX * cellSize , cellY * cellSize, cellSize, cellSize);
+    image(rocketTower, cellX * cellSize , cellY * cellSize, cellSize, cellSize);
   }
   
   Tower(int x, int y)

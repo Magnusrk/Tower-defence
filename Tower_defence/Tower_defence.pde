@@ -8,6 +8,7 @@ float menuHeight = HEIGHT - menuPosY;
 Cell [][] Grid = new Cell[20][13];
 
 PImage path;
+PImage rocketTower;
 EnemySprite[] EnemySprites;
 
 Cell hoverCell = null;
@@ -51,7 +52,8 @@ void setup()
  
  Level = new Path(_path);
 
-  path = loadImage("map.png");
+  path = loadImage("Levels/map.png");
+  rocketTower = loadImage("Towers/rocketTower.png");
 }
 
 void draw()
