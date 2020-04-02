@@ -9,6 +9,7 @@ Cell [][] Grid = new Cell[20][13];
 
 PImage path;
 PImage rocketTower;
+PImage gunTower;
 EnemySprite[] EnemySprites;
 PImage[] ProjectileSprites;
 
@@ -64,6 +65,7 @@ void setup()
 
   path = loadImage("Levels/map.png");
   rocketTower = loadImage("Towers/rocketTower.png");
+  gunTower = loadImage("Towers/gunTower.png");
 }
 
 void draw()
@@ -89,6 +91,7 @@ void draw()
 
   mouseCheck();
   winloseCheck();
+  UI();
 }
 
 void mouseCheck()
@@ -126,6 +129,8 @@ void setUnbuildable(Vector v)
 {
   Grid[v.x][v.y].isPath = true;
 }
+
+
 
 void winloseCheck()
 {
