@@ -10,6 +10,7 @@ Cell [][] Grid = new Cell[20][13];
 PImage path;
 PImage rocketTower;
 EnemySprite[] EnemySprites;
+PImage[] ProjectileSprites;
 
 Cell hoverCell = null;
 
@@ -17,9 +18,12 @@ Path Level;
 
 ArrayList<Tower> AllTowers = new ArrayList<Tower>();
 ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
+ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 
 int baseLives = 10;
 int scrap = 100;
+
+int stage;
 
 void setup()
 {
@@ -49,6 +53,12 @@ void setup()
     new Vector(7, 9), 
     new Vector(19, 9), 
   };
+  
+  ProjectileSprites = new PImage[] {
+    loadImage("projectile/01.png"), 
+    loadImage("projectile/02.png"), 
+    loadImage("projectile/03.png"),
+  };
  
  Level = new Path(_path);
 
@@ -71,6 +81,11 @@ void draw()
   {
     AllEnemies.get(i).move();
   }
+  
+    for (int i = 0; i < AllTowers.size(); i++) {
+    AllTowers.get(i).action();
+  }
+  for (int i = 0; i < AllProjectiles.size(); i++) AllProjectiles.get(i).move();
 
   mouseCheck();
   winloseCheck();
@@ -92,7 +107,7 @@ void keyPressed()
 {
   if(key == 'a')
   {
-    AllEnemies.add(new Enemy(0));
+    AllEnemies.add(new Enemy(0, 10));
   }
 }
 void mousePressed()
@@ -126,4 +141,25 @@ void leak(Enemy e)
   
   baseLives--;
   println("Base damaged");
+}
+
+void death(Enemy e) {
+  scrap++;
+  AllEnemies.remove(e);
+  e.alive = false;
+  removeTarget(e);
+}
+
+void removeTarget(Enemy e) {
+  for (int i = 0; i < AllTowers.size(); i++) if (AllTowers.get(i).target == e) AllTowers.get(i).target = null;
+}
+
+int getDistance(Tower t, Enemy e) { // returns the manhattan distance in pixels
+
+
+  float man = 0;
+  float x = abs(((t.cellX * cellSize) + cellSize/2) - e.posX);
+  float y = abs(((t.cellY * cellSize) + cellSize/2) - e.posY);
+  man = x + y;
+  return round(man);
 }

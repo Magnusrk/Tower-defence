@@ -42,7 +42,8 @@ class Enemy{
   int onLane = 0;
   Direction dir;
   
-  int speed = 6;
+  int speed = 3;
+  int hitPoints = 1;
   
   int spriteIndex;
   int anim = 0;
@@ -50,12 +51,21 @@ class Enemy{
   int animTimer = 0;
   int animDelay = 2;
   
-  Enemy(int sprite){
+  boolean alive = true;
+  
+  Enemy(int sprite, int hp){
+    hitPoints = hp;
     spriteIndex = sprite;
     Vector p = Level.getSpawn();
     posX = p.x;
     posY = p.y;
     dir = Level.getDir(0);
+    alive = true;
+  }
+  
+    void hit(int damage) {
+    hitPoints -= damage;
+    if (hitPoints < 1) death(this);
   }
   
   void move()
