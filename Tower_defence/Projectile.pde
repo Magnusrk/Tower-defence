@@ -18,7 +18,7 @@ class Projectile {
     posX = round(x);
     posY = round(y); 
 
-    image(ProjectileSprites[sprite], posX, posY, cellSize/6, cellSize/6);
+    image(ProjectileSprites[sprite], posX, posY, cellSize/2, cellSize/2);
     if (distance >= 1) hit();
   }
 
@@ -32,7 +32,7 @@ class Projectile {
     posX = round(tX - (cos(angle1) * distance));
     posY = round(tY - (sin(angle1) * distance));
 
-    image(ProjectileSprites[sprite], posX, posY, cellSize/6, cellSize/6);
+    image(ProjectileSprites[sprite], posX, posY, cellSize/2, cellSize/2);
     if (distance < 0) hit();
   }
 

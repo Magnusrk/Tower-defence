@@ -4,8 +4,8 @@ class Tower
   int cellY;
 
   int cost = 25;
-  int range = 100;
-  int reloadTime = 500;
+  int range = 200;
+  int reloadTime = 1000;
   int lastAttack = 0;
   Enemy target = null;
   ArrayList<Enemy> attackThisRound;
