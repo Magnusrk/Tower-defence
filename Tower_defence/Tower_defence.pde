@@ -1,5 +1,5 @@
-int HEIGHT = 512;
-int WIDTH = 640;
+int HEIGHT = 800;
+int WIDTH = 1000;
 float playWindowHeight = WIDTH *0.65;
 float cellSize = WIDTH/20;
 float menuPosY = playWindowHeight + 1;
@@ -23,7 +23,7 @@ int scrap = 100;
 
 void setup()
 {
-  size(640, 512);
+  size(1000, 800);
 
   for (int x=0; x<Grid.length; x++)
   {

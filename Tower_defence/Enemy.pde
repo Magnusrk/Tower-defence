@@ -42,13 +42,13 @@ class Enemy{
   int onLane = 0;
   Direction dir;
   
-  int speed = 3;
+  int speed = 6;
   
   int spriteIndex;
   int anim = 0;
   
   int animTimer = 0;
-  int animDelay = 5;
+  int animDelay = 2;
   
   Enemy(int sprite){
     spriteIndex = sprite;
