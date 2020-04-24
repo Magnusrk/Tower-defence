@@ -1,7 +1,8 @@
 void UI()
 {
-  image(rocketTower, 100, 700, cellSize, cellSize);
+  image(TowerSprites[0], 100, 700, cellSize, cellSize);
   text("25",116, 760);
-  image(gunTower, 200, 700, cellSize, cellSize);
-  text("25",218, 760);
+  image(TowerSprites[1], 200, 700, cellSize, cellSize);
+  text("50",218, 760);
+  text("Scrap: "+scrap,500, 760);
 }

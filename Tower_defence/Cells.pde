@@ -32,6 +32,16 @@ class Cell {
     if (buildable())
     {
       stroke(0, 255, 0);
+      tint(255, 126);
+      if(selectedTower==1)
+      {
+      image(TowerSprites[0], x * cellSize, y * cellSize, cellSize, cellSize);
+      }
+      if(selectedTower==2)
+      {
+      image(TowerSprites[1], x * cellSize, y * cellSize, cellSize, cellSize);
+      }
+      noTint();
     } else
     {
       stroke(255, 0, 0);
