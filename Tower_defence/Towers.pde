@@ -15,6 +15,7 @@ class Tower
   int projectileSprite = 0;
 
   int damage = 0;
+  
 
   Tower(int x, int y, int sprite)
   {
