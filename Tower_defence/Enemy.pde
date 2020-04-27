@@ -43,7 +43,7 @@ class Enemy{
   Direction dir;
   
   int speed = 3;
-  int hitPoints = 1;
+  int hitPoints = 100;
   
   int spriteIndex;
   int anim = 0;
@@ -65,7 +65,9 @@ class Enemy{
   
     void hit(int damage) {
     hitPoints -= damage;
-    if (hitPoints < 1) death(this);
+    if (hitPoints < 0) death(this);
+    test+=1;
+    println(test);
   }
   
   void move()

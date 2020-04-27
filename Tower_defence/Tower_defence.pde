@@ -14,6 +14,7 @@ PImage[] ProjectileSprites;
 
 Cell hoverCell = null;
 
+
 Path Level;
 int selectedTower = 0;
 ArrayList<Tower> AllTowers = new ArrayList<Tower>();
@@ -24,6 +25,8 @@ int baseLives = 10;
 int scrap = 100;
 
 int stage;
+
+int test =0;
 
 Tower currentlyBuilding = null;
 
@@ -48,6 +51,7 @@ void setup()
     loadImage("towers/t1.png"), 
     loadImage("towers/t2.png"), 
   };
+  
 
   Vector[]_path = new Vector[]
     {   

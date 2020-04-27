@@ -16,8 +16,9 @@ class Tower
 
   int damage = 0;
 
-  Tower(int x, int y)
+  Tower(int x, int y, int sprite)
   {
+    spriteIndex = sprite;
     cellX = x;
     cellY = y;
   }
@@ -37,7 +38,7 @@ class Tower
       }
     }
 
-    for (int i = 0; i < AllEnemies.size(); i++) { //attack the next creep
+    for (int i = 0; i < AllEnemies.size(); i++) { //attack the next enemy
       if (getDistance(this, AllEnemies.get(i)) < range) {
         attack(AllEnemies.get(i));
         i = AllEnemies.size();
@@ -48,28 +49,22 @@ class Tower
   void attack(Enemy e) {
     target = e;
     lastAttack = millis();    
-    AllProjectiles.add(new Projectile(this, e, projectileSprite, (int)random(1, 10)));
+    AllProjectiles.add(new Projectile(this, e, projectileSprite, (int)random(damage, damage)));
   }
-  
-    Tower(int x, int y, int sprite) {
-    cellX = x;
-    cellY = y;
-    spriteIndex = sprite;
-  }
-
   Tower() {
   }
 }
 
 class RocketTower extends Tower {
-  
+  // 6 skud til at dræbe 1
     void init() {
     type = TowerTypes.rocketTower;
     spriteIndex = 0;
+    projectileSprite = 0;
     range = 200;
     reloadTime = 1000;
     cost = 25;
-    damage = 20;
+    damage = 2;
   }  
 
   RocketTower(int x, int y) {
@@ -84,14 +79,15 @@ class RocketTower extends Tower {
 }
 
 class GunTower extends Tower {
-  
+  // 11 skud til at dræbe 1
     void init() {
     type = TowerTypes.rocketTower;
     spriteIndex = 1;
+    projectileSprite = 1;
     range = 400;
     reloadTime = 300;
     cost = 50;
-    damage = 10;
+    damage = 1;
   }  
 
   GunTower(int x, int y) {
