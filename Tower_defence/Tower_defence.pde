@@ -6,7 +6,7 @@ float menuPosY = playWindowHeight + 1;
 float menuHeight = HEIGHT - menuPosY;
 
 Cell [][] Grid = new Cell[20][13];
-
+PImage t1;
 PImage path;
 PImage[] TowerSprites;
 EnemySprite[] EnemySprites;
@@ -24,7 +24,7 @@ ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 int baseLives = 30;
 int scrap = 100;
 
-int stage;
+int stage =-1;
 
 int test =0;
 
@@ -44,6 +44,8 @@ boolean gameOver = false;
 
 void setup()
 {
+  noSmooth();
+
   size(1000, 800);
 
   for (int x=0; x<Grid.length; x++)
@@ -90,6 +92,12 @@ void setup()
 
 void draw()
 {
+  if (stage==-1)
+  {
+    mainMenu();
+  } else{
+  
+  
   background(255, 0, 0);
   image(path, 0, 0, width, playWindowHeight);
 
@@ -118,6 +126,7 @@ void draw()
   mouseCheck();
   winloseCheck();
   UI();
+  }
 }
 
 void mouseCheck()
@@ -141,6 +150,14 @@ void keyPressed()
 }
 void mousePressed()
 {
+  if(stage==-1)
+  {
+    if ((mouseX>575-150) && (mouseY>350-75) && (mouseX<575+150) && (mouseY<350+75)) 
+  {
+    stage = 0;
+  }
+  }
+  
   if (mouseY<650) {
     if (hoverCell != null)
     {
