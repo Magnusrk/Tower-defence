@@ -7,7 +7,15 @@ float menuHeight = HEIGHT - menuPosY;
 
 Cell [][] Grid = new Cell[20][13];
 PImage t1;
-PImage path;
+
+PImage ground;
+PImage groundpath;
+PImage pathMask;
+PImage metal;
+PImage caution;
+
+
+
 PImage[] TowerSprites;
 EnemySprite[] EnemySprites;
 PImage[] ProjectileSprites;
@@ -44,6 +52,7 @@ boolean gameOver = false;
 
 void setup()
 {
+  frameRate(30);
   noSmooth();
 
   size(1000, 800);
@@ -87,7 +96,13 @@ void setup()
 
   Level = new Path(_path);
   levelInit();
-  path = loadImage("Levels/map.png");
+  
+  caution = loadImage("caution.jpg");
+  metal = loadImage("metal.png");
+  ground = loadImage("ground.jpg");
+  groundpath = loadImage("groundpath.jpg");
+  pathMask = loadImage("Levels/map.png");
+  groundpath.mask(pathMask);
 }
 
 void draw()
@@ -97,9 +112,12 @@ void draw()
     mainMenu();
   } else{
   
-  
   background(255, 0, 0);
-  image(path, 0, 0, width, playWindowHeight);
+  image(ground, 0, 0, width, playWindowHeight);
+  image(groundpath, 0, 0, width, playWindowHeight);
+  image(metal,0,650);
+  image(caution,0,650, width/2, 50);
+  image(caution,500,650, width/2, 50);
 
   if (gameOver) { 
     gameOver(); 
@@ -180,11 +198,11 @@ void mousePressed()
     }
   }
 
-  if ((mouseX>100-50) && (mouseY>700-50) && (mouseX<100+50) && (mouseY<700+50)) 
+  if ((mouseX>100-50) && (mouseY>720-50) && (mouseX<100+50) && (mouseY<720+50)) 
   {
     selectedTower = 1;
   }
-  if ((mouseX>200-50) && (mouseY>700-50) && (mouseX<200+50) && (mouseY<700+50)) 
+  if ((mouseX>200-50) && (mouseY>720-50) && (mouseX<200+50) && (mouseY<720+50)) 
   {
     selectedTower = 2;
   }
@@ -276,10 +294,16 @@ void startWave() {
 
 void levelInit() {
   ArrayList<Enemy> wave1 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave1.add(new Enemy(0, 5)); // new Creep (int image, int HIT POINTS)
+  for (int i = 0; i < 5; i++) wave1.add(new Enemy(0, 5)); 
+  ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
+  for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
+  ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
+  for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
 
-  allWaves = new ArrayList<Wave>(); //MAKE SURE TO ADD THE WAVE TO THIS LIST!
-  allWaves.add(new Wave(wave1, 1000)); //new Wave (ArrayList<Creep> creeps in wave, int DELAY BETWEEN CREEP SPAWNS)
+  allWaves = new ArrayList<Wave>();
+  allWaves.add(new Wave(wave1, 1000)); 
+  allWaves.add(new Wave(wave2, 500));
+  allWaves.add(new Wave(wave3, 500));
 
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();

@@ -1,10 +1,11 @@
 void UI()
 {
-  image(TowerSprites[0], 100, 700, cellSize, cellSize);
-  text("25",116, 760);
-  image(TowerSprites[1], 200, 700, cellSize, cellSize);
-  text("50",218, 760);
-  text("Scrap: "+scrap,500, 760);
-  text(waveInfo, 500, 780);
-  text("Life: "+baseLives, 600, 760);
+  textSize(20);
+  image(TowerSprites[0], 100, 720, cellSize*1.25, cellSize*1.25);
+  text("25",119, 790);
+  image(TowerSprites[1], 200, 720, cellSize*1.25, cellSize*1.25);
+  text("50",219, 790);
+  text("Scrap: "+scrap,700, 740);
+  text(waveInfo, 700, 780);
+  text("Life: "+baseLives, 850, 740);
 }
