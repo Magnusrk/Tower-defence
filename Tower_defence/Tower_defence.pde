@@ -114,11 +114,17 @@ void draw()
   }
   if (stage==10)
   {
-    background(150);
+    background(0);
+    image(t1, 0, 0, 1000, 800);
+    textSize(60);
+    text("You Won", 100, 680);
   }
   if (stage==20)
   {
-    background(50);
+    background(0);
+    image(t1, 0, 0, 1000, 800);
+    textSize(60);
+    text("You Lost", 100, 680);
   } else if (stage==0) {
 
     background(255, 0, 0);
@@ -165,13 +171,6 @@ void mouseCheck()
   }
 }
 
-void keyPressed()
-{
-  if (key == 'a')
-  {
-    AllEnemies.add(new Enemy(0, 10));
-  }
-}
 void mousePressed()
 {
   if (stage==-1)
@@ -301,7 +300,7 @@ void levelInit() {
   for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
   for (int i = 0; i < 0; i++) wave4.add(new Enemy(0, 5)); 
-  
+
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
   allWaves.add(new Wave(wave2, 500));
