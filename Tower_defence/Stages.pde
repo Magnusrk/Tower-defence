@@ -17,10 +17,10 @@ textSize(15);
 
 void win()
 {
-  
+  stage = 10;
 }
 
 void lose()
 {
-  
+  stage = 20;
 }

@@ -48,7 +48,6 @@ boolean noWave = true;
 int waveDelay = 15000;
 int startWave = 0;
 boolean endGame = false;
-boolean gameOver = false;
 
 void setup()
 {
@@ -96,7 +95,7 @@ void setup()
 
   Level = new Path(_path);
   levelInit();
-  
+
   caution = loadImage("caution.jpg");
   metal = loadImage("metal.png");
   ground = loadImage("ground.jpg");
@@ -110,40 +109,46 @@ void draw()
   if (stage==-1)
   {
     mainMenu();
-  } else{
-  
-  background(255, 0, 0);
-  image(ground, 0, 0, width, playWindowHeight);
-  image(groundpath, 0, 0, width, playWindowHeight);
-  image(metal,0,650);
-  image(caution,0,650, width/2, 50);
-  image(caution,500,650, width/2, 50);
-
-  if (gameOver) { 
-    gameOver(); 
-    return;
   }
-  if (noWave) startWave();
-  else if (currentWave != null) currentWave.man();
-
-  for (int i = 0; i< AllTowers.size(); i++)
+  if (stage==10)
   {
-    AllTowers.get(i).drawTower();
+    background(150);
   }
-
-  for (int i = 0; i < AllEnemies.size(); i++)
+  if (stage==20)
   {
-    AllEnemies.get(i).move();
+    background(50);
   }
+  else if(stage==0) {
 
-  for (int i = 0; i < AllTowers.size(); i++) {
-    AllTowers.get(i).action();
-  }
-  for (int i = 0; i < AllProjectiles.size(); i++) AllProjectiles.get(i).move();
+    background(255, 0, 0);
+    image(ground, 0, 0, width, playWindowHeight);
+    image(groundpath, 0, 0, width, playWindowHeight);
+    image(metal, 0, 650);
+    image(caution, 0, 650, width/2, 50);
+    image(caution, 500, 650, width/2, 50);
 
-  mouseCheck();
-  winloseCheck();
-  UI();
+
+    if (noWave) startWave();
+    else if (currentWave != null) currentWave.man();
+
+    for (int i = 0; i< AllTowers.size(); i++)
+    {
+      AllTowers.get(i).drawTower();
+    }
+
+    for (int i = 0; i < AllEnemies.size(); i++)
+    {
+      AllEnemies.get(i).move();
+    }
+
+    for (int i = 0; i < AllTowers.size(); i++) {
+      AllTowers.get(i).action();
+    }
+    for (int i = 0; i < AllProjectiles.size(); i++) AllProjectiles.get(i).move();
+
+    mouseCheck();
+    winloseCheck();
+    UI();
   }
 }
 
@@ -168,14 +173,14 @@ void keyPressed()
 }
 void mousePressed()
 {
-  if(stage==-1)
+  if (stage==-1)
   {
     if ((mouseX>575-150) && (mouseY>350-75) && (mouseX<575+150) && (mouseY<350+75)) 
-  {
-    stage = 0;
+    {
+      stage = 0;
+    }
   }
-  }
-  
+
   if (mouseY<650) {
     if (hoverCell != null)
     {
@@ -217,9 +222,9 @@ void setUnbuildable(Vector v)
 
 void winloseCheck()
 {
-  if (baseLives==0)
+  if (baseLives<=0)
   {
-    println("GAME OVER");
+    lose();
   }
 }
 
@@ -256,15 +261,8 @@ void spawn(Enemy e) {
   AllEnemies.add(e);
 }
 
-void gameOver() {
-  gameOver = true;
-  fill(000);
-  textSize(50);
-  text("Game Over", 180, 200);
-}
 
 void finishWave() {
-  println("f");
   onWave ++;
   noWave = true;
   if (onWave < allWaves.size()) {
@@ -283,7 +281,7 @@ void startWave() {
       noWave = false;
       waveInfo = "Wave " + (onWave + 1);
     } else {
-      if (AllEnemies.size() < 1)gameOver();
+      if (AllEnemies.size() < 1) println(stage); win();
     }
   } else {
     waveInfo = "Wave " + (onWave + 1) + " in:  " + round( (startWave - millis()) / 1000) + " sec";
@@ -294,16 +292,17 @@ void startWave() {
 
 void levelInit() {
   ArrayList<Enemy> wave1 = new ArrayList<Enemy>();
-  for (int i = 0; i < 5; i++) wave1.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 1; i++) wave1.add(new Enemy(0, 5)); 
+  /*
   ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
-  for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 1; i++) wave2.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
-
+  for (int i = 0; i < 1; i++) wave3.add(new Enemy(0, 5)); 
+*/
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
-  allWaves.add(new Wave(wave2, 500));
-  allWaves.add(new Wave(wave3, 500));
+ // allWaves.add(new Wave(wave2, 500));
+ // allWaves.add(new Wave(wave3, 500));
 
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();
