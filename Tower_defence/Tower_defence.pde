@@ -29,8 +29,8 @@ ArrayList<Tower> AllTowers = new ArrayList<Tower>();
 ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 
-int baseLives = 30;
-int scrap = 100;
+int baseLives = 25;
+int scrap = 50;
 
 int stage =-1;
 
@@ -238,7 +238,7 @@ void leak(Enemy e)
 }
 
 void death(Enemy e) {
-  scrap++;
+  scrap+=10;
   AllEnemies.remove(e);
   e.alive = false;
   removeTarget(e);
@@ -299,10 +299,14 @@ void levelInit() {
   for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
   for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
+  ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
+  for (int i = 0; i < 0; i++) wave4.add(new Enemy(0, 5)); 
+  
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
   allWaves.add(new Wave(wave2, 500));
   allWaves.add(new Wave(wave3, 500));
+  allWaves.add(new Wave(wave4, 5));
 
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();

@@ -66,8 +66,6 @@ class Enemy{
     void hit(int damage) {
     hitPoints -= damage;
     if (hitPoints < 0) death(this);
-    test+=1;
-    println(test);
   }
   
   void move()
