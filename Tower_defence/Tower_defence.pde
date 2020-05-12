@@ -14,7 +14,7 @@ PImage pathMask;
 PImage metal;
 PImage caution;
 
-
+PFont font;
 
 PImage[] TowerSprites;
 EnemySprite[] EnemySprites;
@@ -51,6 +51,8 @@ boolean endGame = false;
 
 void setup()
 {
+  font= createFont("terminator-real-nfi.otf", 32);
+  textFont(font);
   frameRate(30);
   noSmooth();
 
@@ -117,8 +119,7 @@ void draw()
   if (stage==20)
   {
     background(50);
-  }
-  else if(stage==0) {
+  } else if (stage==0) {
 
     background(255, 0, 0);
     image(ground, 0, 0, width, playWindowHeight);
@@ -281,7 +282,8 @@ void startWave() {
       noWave = false;
       waveInfo = "Wave " + (onWave + 1);
     } else {
-      if (AllEnemies.size() < 1) println(stage); win();
+      if (AllEnemies.size() < 1) println(stage); 
+      win();
     }
   } else {
     waveInfo = "Wave " + (onWave + 1) + " in:  " + round( (startWave - millis()) / 1000) + " sec";
@@ -292,17 +294,15 @@ void startWave() {
 
 void levelInit() {
   ArrayList<Enemy> wave1 = new ArrayList<Enemy>();
-  for (int i = 0; i < 1; i++) wave1.add(new Enemy(0, 5)); 
-  /*
+  for (int i = 0; i < 5; i++) wave1.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
-  for (int i = 0; i < 1; i++) wave2.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
-  for (int i = 0; i < 1; i++) wave3.add(new Enemy(0, 5)); 
-*/
+  for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
- // allWaves.add(new Wave(wave2, 500));
- // allWaves.add(new Wave(wave3, 500));
+  allWaves.add(new Wave(wave2, 500));
+  allWaves.add(new Wave(wave3, 500));
 
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();
