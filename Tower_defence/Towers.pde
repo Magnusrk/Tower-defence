@@ -82,7 +82,7 @@ class RocketTower extends Tower {
 class GunTower extends Tower {
   // 11 skud til at dræbe 1
     void init() {
-    type = TowerTypes.rocketTower;
+    type = TowerTypes.gunTower;
     spriteIndex = 1;
     projectileSprite = 1;
     range = 400;
@@ -98,6 +98,29 @@ class GunTower extends Tower {
   }
 
   GunTower() {
+    init();
+  }
+}
+
+class SniperTower extends Tower {
+  // 1 skud til at dræbe 1
+    void init() {
+    type = TowerTypes.sniperTower;
+    spriteIndex = 2;
+    projectileSprite = 1;
+    range = 750;
+    reloadTime = 4000;
+    cost = 75;
+    damage = 10;
+  }  
+
+  SniperTower(int x, int y) {
+    cellX = x;
+    cellY = y;
+    init();
+  }
+
+  SniperTower() {
     init();
   }
 }

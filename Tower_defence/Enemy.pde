@@ -49,7 +49,7 @@ class Enemy{
   int anim = 0;
   
   int animTimer = 0;
-  int animDelay = 2;
+  int animDelay = 3;
   
   boolean alive = true;
   

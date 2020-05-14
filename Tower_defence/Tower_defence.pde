@@ -30,7 +30,7 @@ ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 
 int baseLives = 25;
-int scrap = 50;
+int scrap = 100;
 
 int stage =-1;
 
@@ -69,11 +69,13 @@ void setup()
   EnemySprites = new EnemySprite[]
     {
     new EnemySprite("ene1"), 
+    new EnemySprite("ene2"), 
   };
 
   TowerSprites = new PImage[] {
     loadImage("towers/t1.png"), 
     loadImage("towers/t2.png"), 
+    loadImage("towers/t3.png"),
   };
 
 
@@ -199,6 +201,12 @@ void mousePressed()
           scrap-=50;
           selectedTower=0;
         }
+        if (selectedTower == 3 && scrap>=75)
+        {
+          hoverCell.buildOn(new SniperTower(hoverCell.x, hoverCell.y));
+          scrap-=75;
+          selectedTower=0;
+        }
       }
     }
   }
@@ -210,6 +218,10 @@ void mousePressed()
   if ((mouseX>200-50) && (mouseY>720-50) && (mouseX<200+50) && (mouseY<720+50)) 
   {
     selectedTower = 2;
+  }
+  if ((mouseX>300-50) && (mouseY>720-50) && (mouseX<300+50) && (mouseY<720+50)) 
+  {
+    selectedTower = 3;
   }
 }
 
@@ -297,9 +309,11 @@ void levelInit() {
   ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
   for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave3.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 3; i++) wave3.add(new Enemy(1, 30)); 
   ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
   for (int i = 0; i < 0; i++) wave4.add(new Enemy(0, 5)); 
+  ArrayList<Enemy> wave5 = new ArrayList<Enemy>();
+  for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 30)); 
 
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
