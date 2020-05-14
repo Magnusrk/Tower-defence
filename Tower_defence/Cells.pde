@@ -45,6 +45,10 @@ class Cell {
       {
       image(TowerSprites[2], x * cellSize, y * cellSize, cellSize, cellSize);
       }
+      if(selectedTower==4)
+      {
+      image(TowerSprites[3], x * cellSize, y * cellSize, cellSize, cellSize);
+      }
       noTint();
     } else
     {

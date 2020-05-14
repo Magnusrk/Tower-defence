@@ -42,7 +42,7 @@ class Enemy{
   int onLane = 0;
   Direction dir;
   
-  int speed = 3;
+  int speed = 5;
   int hitPoints = 100;
   
   int spriteIndex;

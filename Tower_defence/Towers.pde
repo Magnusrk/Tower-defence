@@ -124,3 +124,26 @@ class SniperTower extends Tower {
     init();
   }
 }
+
+class RailTower extends Tower {
+  // 1 skud til at dræbe 1
+    void init() {
+    type = TowerTypes.railTower;
+    spriteIndex = 3;
+    projectileSprite = 2;
+    range = 750;
+    reloadTime = 1000;
+    cost = 150;
+    damage = 10;
+  }  
+
+  RailTower(int x, int y) {
+    cellX = x;
+    cellY = y;
+    init();
+  }
+
+  RailTower() {
+    init();
+  }
+}

@@ -7,6 +7,8 @@ void UI()
   text("50",219, 790);
   image(TowerSprites[2], 300, 720, cellSize*1.25, cellSize*1.25);
   text("75",319, 790);
+  image(TowerSprites[3], 400, 720, cellSize*1.25, cellSize*1.25);
+  text("150",419, 790);
   
   text("Scrap: "+scrap,700, 740);
   text(waveInfo, 700, 780);
