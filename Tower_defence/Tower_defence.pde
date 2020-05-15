@@ -260,7 +260,7 @@ void leak(Enemy e)
 }
 
 void death(Enemy e) {
-  scrap+=10;
+  scrap+=5;
   AllEnemies.remove(e);
   e.alive = false;
   removeTarget(e);
@@ -320,11 +320,11 @@ void levelInit() {
   ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
   for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
-  for (int i = 0; i < 3; i++) wave3.add(new Enemy(1, 30)); 
+  for (int i = 0; i < 3; i++) wave3.add(new Enemy(1, 15)); 
   ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
   for (int i = 0; i < 20; i++) wave4.add(new Enemy(0, 5)); 
   ArrayList<Enemy> wave5 = new ArrayList<Enemy>();
-  for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 30)); 
+  for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 15)); 
   ArrayList<Enemy> wave6 = new ArrayList<Enemy>();
   for (int i = 0; i < 0; i++) wave6.add(new Enemy(0, 5)); 
 
