@@ -29,13 +29,11 @@ void mainMenu()
 void win()
 {
   stage = 10;
-  println("win");
 }
 
 void lose()
 {
   stage = 20;
-  println("lose");
 }
 
 void exitGame()

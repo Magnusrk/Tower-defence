@@ -57,7 +57,7 @@ void setup()
 {
   music = new SoundFile(this, "music.mp3");
   music.play();
-  
+
   font= createFont("terminator-real-nfi.otf", 32);
   textFont(font);
   frameRate(30);
@@ -137,27 +137,33 @@ void draw()
     image(TowerSprites[2], 550, 200, cellSize*2, cellSize*2);
 
     image(TowerSprites[3], 800, 200, cellSize*2, cellSize*2);
-    
+
     textSize(11);
     text("Rocket tower:", 20, 320);
     text("Does moderate damage", 10, 370);
     text("and moderate", 10, 400);
-     text("reload speed.", 10, 425);
-    
+    text("reload speed.", 10, 425);
+
     text("Machine gun:", 275, 320);
     text("Does little damage,", 275, 370);
     text("but fast", 275, 400);
     text("reload speed.", 275, 425);
-    
+
     text("Sniper tower:", 500, 320);
     text("Does lots of damage", 500, 370);
     text("but slow", 500, 400);
     text("reload speed.", 500, 425);
-    
+
     text("Railgun:", 740, 320);
     text("Does lots of damage and", 740, 370);
     text("moderate reload speed,", 740, 400);
     text("but high cost", 740, 425);
+    
+    textSize(15);
+    rect(20, 600, 100, 75);
+    fill(0);
+    text("Back", 35, 645);
+    fill(255);
   }
 
   if (stage==10)
@@ -240,9 +246,17 @@ void mousePressed()
   }
   if (stage==10 || stage==20)
   {
-    if ((mouseX>575-150) && (mouseY>350-75) && (mouseX<575+150) && (mouseY<350+75)) 
+    if ((mouseX>575) && (mouseY>350) && (mouseX<575+150) && (mouseY<350+75)) 
     {
       exit();
+    }
+  }
+  
+  if(stage == -10)
+  {
+    if ((mouseX>20) && (mouseY>600) && (mouseX<20+100) && (mouseY<600+75)) 
+    {
+      stage=-1;
     }
   }
 
@@ -318,7 +332,6 @@ void leak(Enemy e)
   AllEnemies.remove(e);
 
   baseLives--;
-  println("Base damaged");
 }
 
 void death(Enemy e) {
@@ -397,7 +410,7 @@ void levelInit() {
   allWaves.add(new Wave(wave4, 500));
   allWaves.add(new Wave(wave5, 500));
   allWaves.add(new Wave(wave6, 5));
-  
+
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();
 }
