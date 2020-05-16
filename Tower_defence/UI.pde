@@ -20,8 +20,8 @@ void UI()
   text("Life: "+baseLives, 850, 740);
   
   textSize(11);
-  text("Cost:",20, 785);
-  text("Type:",20, 716);
+  text("Cost :",20, 785);
+  text("Type :",20, 716);
   text("Rocket",90, 716);
   text("Machine Gun",175, 716);
   text("Sniper",305, 716);
