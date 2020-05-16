@@ -1,9 +1,13 @@
+import processing.sound.*;
+SoundFile music;
+
 int HEIGHT = 800;
 int WIDTH = 1000;
 float playWindowHeight = WIDTH *0.65;
 float cellSize = WIDTH/20;
 float menuPosY = playWindowHeight + 1;
 float menuHeight = HEIGHT - menuPosY;
+
 
 Cell [][] Grid = new Cell[20][13];
 PImage t1;
@@ -51,6 +55,9 @@ boolean endGame = false;
 
 void setup()
 {
+  music = new SoundFile(this, "music.mp3");
+  music.play();
+  
   font= createFont("terminator-real-nfi.otf", 32);
   textFont(font);
   frameRate(30);
@@ -159,6 +166,7 @@ void draw()
     image(t1, 0, 0, 1000, 800);
     textSize(60);
     text("You Won", 100, 680);
+    exitGame();
   }
   if (stage==20)
   {
@@ -166,6 +174,7 @@ void draw()
     image(t1, 0, 0, 1000, 800);
     textSize(60);
     text("You Lost", 100, 680);
+    exitGame();
   } else if (stage==0) {
 
     background(255, 0, 0);
@@ -388,7 +397,7 @@ void levelInit() {
   allWaves.add(new Wave(wave4, 500));
   allWaves.add(new Wave(wave5, 500));
   allWaves.add(new Wave(wave6, 5));
-
+  
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();
 }
