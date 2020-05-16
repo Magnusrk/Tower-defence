@@ -75,8 +75,8 @@ void setup()
   TowerSprites = new PImage[] {
     loadImage("towers/t1.png"), 
     loadImage("towers/t2.png"), 
-    loadImage("towers/t3.png"),
-    loadImage("towers/t4.png"),
+    loadImage("towers/t3.png"), 
+    loadImage("towers/t4.png"), 
   };
 
 
@@ -115,6 +115,44 @@ void draw()
   {
     mainMenu();
   }
+  if (stage==-10)
+  {
+    background(150);
+    text("Goal of the game:", 20, 50);
+    text("Kill all the humans soldiers before they reach your base.", 20, 100);
+
+    text("Use the five tower types too shoot the humans.", 20, 150);
+
+    image(TowerSprites[0], 50, 200, cellSize*2, cellSize*2);
+
+    image(TowerSprites[1], 300, 200, cellSize*2, cellSize*2);
+
+    image(TowerSprites[2], 550, 200, cellSize*2, cellSize*2);
+
+    image(TowerSprites[3], 800, 200, cellSize*2, cellSize*2);
+    
+    textSize(11);
+    text("Rocket tower:", 20, 320);
+    text("Does moderate damage", 10, 370);
+    text("and moderate", 10, 400);
+     text("reload speed.", 10, 425);
+    
+    text("Machine gun:", 275, 320);
+    text("Does little damage,", 275, 370);
+    text("but fast", 275, 400);
+    text("reload speed.", 275, 425);
+    
+    text("Sniper tower:", 500, 320);
+    text("Does lots of damage", 500, 370);
+    text("but slow", 500, 400);
+    text("reload speed.", 500, 425);
+    
+    text("Railgun:", 740, 320);
+    text("Does lots of damage and", 740, 370);
+    text("moderate reload speed,", 740, 400);
+    text("but high cost", 740, 425);
+  }
+
   if (stage==10)
   {
     background(0);
@@ -178,9 +216,24 @@ void mousePressed()
 {
   if (stage==-1)
   {
-    if ((mouseX>575-150) && (mouseY>350-75) && (mouseX<575+150) && (mouseY<350+75)) 
+    if ((mouseX>575) && (mouseY>250) && (mouseX<575+200) && (mouseY<250+75)) 
     {
       stage = 0;
+    }
+    if ((mouseX>575) && (mouseY>350) && (mouseX<575+200) && (mouseY<350+75)) 
+    {
+      stage = -10;
+    }
+    if ((mouseX>575) && (mouseY>450) && (mouseX<575+200) && (mouseY<450+75)) 
+    {
+      exit();
+    }
+  }
+  if (stage==10 || stage==20)
+  {
+    if ((mouseX>575-150) && (mouseY>350-75) && (mouseX<575+150) && (mouseY<350+75)) 
+    {
+      exit();
     }
   }
 

@@ -133,7 +133,7 @@ class RailTower extends Tower {
     projectileSprite = 2;
     range = 750;
     reloadTime = 1000;
-    cost = 150;
+    cost = 200;
     damage = 10;
   }  
 

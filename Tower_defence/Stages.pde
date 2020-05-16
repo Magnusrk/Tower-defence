@@ -7,9 +7,20 @@ void mainMenu()
   text("Tower Defence", 100, 680);
 
   textSize(24);
-  rect(575, 350, 150, 75);
+  rect(575, 250, 200, 75);
   fill(0);
-  text("Start", 583, 400);
+  text("Start", 583, 300);
+  fill(255);
+  
+  rect(575, 350, 200, 75);
+  fill(0);
+  text("Tutorial", 583, 400);
+  fill(255);
+  
+  
+  rect(575, 450, 200, 75);
+  fill(0);
+  text("Exit", 583, 500);
   fill(255);
 
   textSize(15);
@@ -25,4 +36,14 @@ void lose()
 {
   stage = 20;
   println("lose");
+}
+
+void exitGame()
+{
+  textSize(24);
+  rect(575, 350, 150, 75);
+  fill(0);
+  text("Exit", 583, 400);
+  fill(255);
+  textSize(15);
 }
