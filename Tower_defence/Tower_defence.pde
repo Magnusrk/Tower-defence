@@ -144,21 +144,25 @@ void draw()
     text("Does moderate damage", 10, 370);
     text("and moderate", 10, 400);
     text("reload speed.", 10, 425);
+    text("Low range.", 10, 450);
 
     text("Machine gun:", 275, 320);
     text("Does little damage,", 275, 370);
     text("but fast", 275, 400);
     text("reload speed.", 275, 425);
+    text("Medium range.", 275, 450);
 
     text("Sniper tower:", 500, 320);
     text("Does lots of damage", 500, 370);
     text("but slow", 500, 400);
     text("reload speed.", 500, 425);
+    text("High range.", 500, 450);
 
     text("Railgun:", 740, 320);
     text("Does lots of damage and", 740, 370);
     text("moderate reload speed,", 740, 400);
     text("but high cost", 740, 425);
+    text("High range", 740, 450);
 
     textSize(15);
     rect(20, 600, 100, 75);
