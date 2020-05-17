@@ -42,6 +42,4 @@ void exitGame()
   rect(575, 350, 150, 75);
   fill(0);
   text("Exit", 583, 400);
-  fill(255);
-  textSize(15);
 }

@@ -426,16 +426,16 @@ void levelInit() {
   for (int i = 0; i < 25; i++) wave10.add(new Enemy(1, 10)); 
 
   ArrayList<Enemy> wave11 = new ArrayList<Enemy>();
-  for (int i = 0; i < 15; i++) wave11.add(new Enemy(0, 10)); 
+  for (int i = 0; i < 15; i++) wave11.add(new Enemy(0, 15)); 
 
   ArrayList<Enemy> wave12 = new ArrayList<Enemy>();
-  for (int i = 0; i < 10; i++) wave12.add(new Enemy(0, 15)); 
+  for (int i = 0; i < 10; i++) wave12.add(new Enemy(0, 20)); 
 
   ArrayList<Enemy> wave13 = new ArrayList<Enemy>();
-  for (int i = 0; i < 3; i++) wave13.add(new Enemy(1, 30)); 
+  for (int i = 0; i < 3; i++) wave13.add(new Enemy(1, 60)); 
 
   ArrayList<Enemy> wave14 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave14.add(new Enemy(0, 10)); 
+  for (int i = 0; i < 20; i++) wave14.add(new Enemy(0, 30)); 
 
   ArrayList<Enemy> wave15 = new ArrayList<Enemy>();
   for (int i = 0; i < 1; i++) wave15.add(new Enemy(1, 1000)); 
