@@ -124,9 +124,10 @@ void draw()
   }
   if (stage==-10)
   {
-    background(150);
+    background(100);
+    textSize(17);
     text("Goal of the game:", 20, 50);
-    text("Kill all the humans soldiers before they reach your base.", 20, 100);
+    text("Kill all the human soldiers before they reach your base.", 20, 100);
 
     text("Use the five tower types too shoot the humans.", 20, 150);
 
