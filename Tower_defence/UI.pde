@@ -17,7 +17,7 @@ void UI()
   
   text("Scrap: "+scrap,700, 740);
   text(waveInfo, 700, 780);
-  text("Life: "+baseLives, 850, 740);
+  text("Life: "+baseLives, 885, 740);
   
   textSize(11);
   text("Cost :",20, 785);
