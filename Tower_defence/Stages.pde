@@ -39,7 +39,9 @@ void lose()
 void exitGame()
 {
   textSize(24);
+  fill(255);
   rect(575, 350, 150, 75);
   fill(0);
   text("Exit", 583, 400);
+  fill(255);
 }

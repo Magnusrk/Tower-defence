@@ -292,7 +292,7 @@ void mousePressed()
         if (selectedTower == 4 && scrap>=150)
         {
           hoverCell.buildOn(new RailTower(hoverCell.x, hoverCell.y));
-          scrap-=150;
+          scrap-=200;
           selectedTower=0;
         }
       }
@@ -405,7 +405,7 @@ void levelInit() {
   for (int i = 0; i < 3; i++) wave3.add(new Enemy(1, 15)); 
 
   ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave4.add(new Enemy(0, 10)); 
+  for (int i = 0; i < 15; i++) wave4.add(new Enemy(0, 10)); 
 
   ArrayList<Enemy> wave5 = new ArrayList<Enemy>();
   for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 17)); 
