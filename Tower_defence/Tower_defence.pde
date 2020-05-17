@@ -158,7 +158,7 @@ void draw()
     text("Does lots of damage and", 740, 370);
     text("moderate reload speed,", 740, 400);
     text("but high cost", 740, 425);
-    
+
     textSize(15);
     rect(20, 600, 100, 75);
     fill(0);
@@ -251,8 +251,8 @@ void mousePressed()
       exit();
     }
   }
-  
-  if(stage == -10)
+
+  if (stage == -10)
   {
     if ((mouseX>20) && (mouseY>600) && (mouseX<20+100) && (mouseY<600+75)) 
     {
@@ -392,16 +392,52 @@ void startWave() {
 void levelInit() {
   ArrayList<Enemy> wave1 = new ArrayList<Enemy>();
   for (int i = 0; i < 5; i++) wave1.add(new Enemy(0, 5)); 
+
   ArrayList<Enemy> wave2 = new ArrayList<Enemy>();
-  for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 10; i++) wave2.add(new Enemy(0, 7)); 
+
   ArrayList<Enemy> wave3 = new ArrayList<Enemy>();
   for (int i = 0; i < 3; i++) wave3.add(new Enemy(1, 15)); 
+
   ArrayList<Enemy> wave4 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave4.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 20; i++) wave4.add(new Enemy(0, 10)); 
+
   ArrayList<Enemy> wave5 = new ArrayList<Enemy>();
-  for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 15)); 
+  for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 17)); 
+
   ArrayList<Enemy> wave6 = new ArrayList<Enemy>();
-  for (int i = 0; i < 0; i++) wave6.add(new Enemy(0, 5)); 
+  for (int i = 0; i < 20; i++) wave6.add(new Enemy(0, 10)); 
+
+  ArrayList<Enemy> wave7 = new ArrayList<Enemy>();
+  for (int i = 0; i < 10; i++) wave7.add(new Enemy(0, 10)); 
+
+  ArrayList<Enemy> wave8 = new ArrayList<Enemy>();
+  for (int i = 0; i < 15; i++) wave8.add(new Enemy(1, 20)); 
+
+  ArrayList<Enemy> wave9 = new ArrayList<Enemy>();
+  for (int i = 0; i < 50; i++) wave9.add(new Enemy(0, 5)); 
+
+  ArrayList<Enemy> wave10 = new ArrayList<Enemy>();
+  for (int i = 0; i < 25; i++) wave10.add(new Enemy(1, 10)); 
+
+  ArrayList<Enemy> wave11 = new ArrayList<Enemy>();
+  for (int i = 0; i < 15; i++) wave11.add(new Enemy(0, 10)); 
+
+  ArrayList<Enemy> wave12 = new ArrayList<Enemy>();
+  for (int i = 0; i < 10; i++) wave12.add(new Enemy(0, 15)); 
+
+  ArrayList<Enemy> wave13 = new ArrayList<Enemy>();
+  for (int i = 0; i < 3; i++) wave13.add(new Enemy(1, 30)); 
+
+  ArrayList<Enemy> wave14 = new ArrayList<Enemy>();
+  for (int i = 0; i < 20; i++) wave14.add(new Enemy(0, 10)); 
+
+  ArrayList<Enemy> wave15 = new ArrayList<Enemy>();
+  for (int i = 0; i < 1; i++) wave15.add(new Enemy(1, 1000)); 
+
+
+  ArrayList<Enemy> wave16 = new ArrayList<Enemy>();
+  for (int i = 0; i < 0; i++) wave16.add(new Enemy(0, 5)); 
 
   allWaves = new ArrayList<Wave>();
   allWaves.add(new Wave(wave1, 1000)); 
@@ -409,7 +445,17 @@ void levelInit() {
   allWaves.add(new Wave(wave3, 500));
   allWaves.add(new Wave(wave4, 500));
   allWaves.add(new Wave(wave5, 500));
-  allWaves.add(new Wave(wave6, 5));
+  allWaves.add(new Wave(wave6, 1000)); 
+  allWaves.add(new Wave(wave7, 500));
+  allWaves.add(new Wave(wave8, 500));
+  allWaves.add(new Wave(wave9, 500));
+  allWaves.add(new Wave(wave10, 500));
+  allWaves.add(new Wave(wave11, 1000)); 
+  allWaves.add(new Wave(wave12, 500));
+  allWaves.add(new Wave(wave13, 500));
+  allWaves.add(new Wave(wave14, 500));
+  allWaves.add(new Wave(wave15, 500));
+  allWaves.add(new Wave(wave16, 5));
 
   currentWave = allWaves.get(0);
   startWave = waveDelay + millis();
