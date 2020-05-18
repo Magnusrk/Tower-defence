@@ -34,7 +34,7 @@ ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 
 int baseLives = 25;
-int scrap = 75;
+float scrap = 75;
 
 int stage =-1;
 
@@ -340,7 +340,7 @@ void leak(Enemy e)
 }
 
 void death(Enemy e) {
-  scrap+=5;
+  scrap+=2.5;
   AllEnemies.remove(e);
   e.alive = false;
   removeTarget(e);
