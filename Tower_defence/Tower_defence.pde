@@ -56,7 +56,7 @@ boolean endGame = false;
 void setup()
 {
   music = new SoundFile(this, "music.mp3");
-  music.play();
+  music.loop();
 
   font= createFont("terminator-real-nfi.otf", 32);
   textFont(font);
@@ -129,7 +129,7 @@ void draw()
     text("Goal of the game:", 20, 50);
     text("Kill all the human soldiers before they reach your base.", 20, 100);
 
-    text("Use the five tower types too shoot the humans.", 20, 150);
+    text("Use the four tower types to shoot the humans.", 20, 150);
 
     image(TowerSprites[0], 50, 200, cellSize*2, cellSize*2);
 
@@ -409,21 +409,24 @@ void levelInit() {
 
   ArrayList<Enemy> wave5 = new ArrayList<Enemy>();
   for (int i = 0; i < 10; i++) wave5.add(new Enemy(1, 17)); 
+  for (int i = 0; i < 5; i++) wave5.add(new Enemy(0, 10)); 
 
   ArrayList<Enemy> wave6 = new ArrayList<Enemy>();
-  for (int i = 0; i < 20; i++) wave6.add(new Enemy(0, 10)); 
+  for (int i = 0; i < 20; i++) wave6.add(new Enemy(0, 13)); 
 
   ArrayList<Enemy> wave7 = new ArrayList<Enemy>();
   for (int i = 0; i < 10; i++) wave7.add(new Enemy(0, 10)); 
 
   ArrayList<Enemy> wave8 = new ArrayList<Enemy>();
-  for (int i = 0; i < 15; i++) wave8.add(new Enemy(1, 20)); 
+  for (int i = 0; i < 15; i++) wave8.add(new Enemy(1, 20));
+  for (int i = 0; i < 5; i++) wave8.add(new Enemy(0, 10)); 
 
   ArrayList<Enemy> wave9 = new ArrayList<Enemy>();
   for (int i = 0; i < 50; i++) wave9.add(new Enemy(0, 5)); 
 
   ArrayList<Enemy> wave10 = new ArrayList<Enemy>();
   for (int i = 0; i < 25; i++) wave10.add(new Enemy(1, 10)); 
+  for (int i = 0; i < 5; i++) wave10.add(new Enemy(0, 5)); 
 
   ArrayList<Enemy> wave11 = new ArrayList<Enemy>();
   for (int i = 0; i < 15; i++) wave11.add(new Enemy(0, 15)); 
@@ -432,13 +435,15 @@ void levelInit() {
   for (int i = 0; i < 10; i++) wave12.add(new Enemy(0, 20)); 
 
   ArrayList<Enemy> wave13 = new ArrayList<Enemy>();
-  for (int i = 0; i < 3; i++) wave13.add(new Enemy(1, 60)); 
+  for (int i = 0; i < 3; i++) wave13.add(new Enemy(1, 60));
+  for (int i = 0; i < 5; i++) wave13.add(new Enemy(0, 30)); 
 
   ArrayList<Enemy> wave14 = new ArrayList<Enemy>();
   for (int i = 0; i < 20; i++) wave14.add(new Enemy(0, 30)); 
 
   ArrayList<Enemy> wave15 = new ArrayList<Enemy>();
   for (int i = 0; i < 1; i++) wave15.add(new Enemy(1, 1000)); 
+  for (int i = 0; i < 15; i++) wave15.add(new Enemy(0, 50)); 
 
 
   ArrayList<Enemy> wave16 = new ArrayList<Enemy>();
