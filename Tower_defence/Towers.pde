@@ -109,7 +109,7 @@ class SniperTower extends Tower {
     spriteIndex = 2;
     projectileSprite = 1;
     range = 750;
-    reloadTime = 4000;
+    reloadTime = 3500;
     cost = 75;
     damage = 10;
   }  
