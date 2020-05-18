@@ -34,7 +34,7 @@ ArrayList<Enemy> AllEnemies = new ArrayList<Enemy>();
 ArrayList<Projectile> AllProjectiles = new ArrayList<Projectile>();
 
 int baseLives = 25;
-float scrap = 100;
+float scrap = 125;
 
 int stage =-1;
 
