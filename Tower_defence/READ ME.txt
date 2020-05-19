@@ -1,0 +1,2 @@
+Spillet kan køres for en exe fil med windows 64 eller 32 og gennem processing. 
+For at køre programmet fra processing skal i have downloadet processing sound library.
