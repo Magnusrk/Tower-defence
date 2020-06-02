@@ -87,11 +87,11 @@ class Path {
       {
         for (int z = 0; z < abs(difference); z++)
         {
-          if (difference < 0)
+          if (difference < 0) //til højre
           {
             Grid[v[i].x + z][v[i].y].isPath = true;
             directions[i] = Direction.right;
-          } else
+          } else //til venstre
           {
             Grid[v[i].x - z][v[i].y].isPath = true;
             directions[i] = Direction.left;

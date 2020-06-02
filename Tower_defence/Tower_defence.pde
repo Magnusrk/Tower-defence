@@ -352,7 +352,6 @@ void removeTarget(Enemy e) {
 
 int getDistance(Tower t, Enemy e) { // returns the manhattan distance in pixels
 
-
   float man = 0;
   float x = abs(((t.cellX * cellSize) + cellSize/2) - e.posX);
   float y = abs(((t.cellY * cellSize) + cellSize/2) - e.posY);

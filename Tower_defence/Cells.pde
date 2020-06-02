@@ -5,6 +5,13 @@ class Cell {
   boolean isPath = false;
 
   Tower occupant = null;
+  
+  
+  Cell (int _x, int _y)
+  {
+    x=_x;
+    y=_y;
+  }
 
   void buildOn(Tower t)
   {
@@ -58,9 +65,4 @@ class Cell {
   }
 
 
-  Cell (int _x, int _y)
-  {
-    x=_x;
-    y=_y;
-  }
 }
